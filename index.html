@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz app</title>
+    
+	<link rel="stylesheet" href="./style.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--Animate CSS-->
+	<link rel="stylesheet" href="https://raw.githubusercontent.com/daneden/animate.css/master/animate.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->         
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyCmFDI3BXOdx5FtfFq_3_CFAoT2LEdiPb8",
+        authDomain: "quizzapp-a5def.firebaseapp.com",
+        databaseURL: "https://quizzapp-a5def-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "quizzapp-a5def",
+        storageBucket: "quizzapp-a5def.appspot.com",
+        messagingSenderId: "915308690693",
+        appId: "1:915308690693:web:cd1646484d7a6b6b460b6c"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    </script>
+
+
+
+    
+</head>
+<body>
+    <div id="mainDiv">
+        <div id="loaderDiv">
+            <div id="loader" class="spinner-border"></div>
+        </div>
+        <!-- ==================Admin Panel================ -->
+        <div id="mainPanel" style="display: none;">
+            <div id="panelInner">
+                <div id="header">
+                    <h3>Questions</h3>
+                </div>
+                <div id="questionsBody">
+                    <ul id="questionsUl">
+
+                    </ul>
+                    <button class="btn btn-danger homeBtn" onclick="homePage()">Done</button>
+                </div>
+                <div id="addBtnDiv">
+                    <button id="addBtn" class="btn btn-success fa fa-plus" onclick="addQuestion()"></button>
+                    <button id="delAllBtn" class="btn btn-danger fa fa-trash" onclick="dellAll()"></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================Home Page================ -->
+        <div class="container" id="container">
+            <div class="menu">
+                <ul>
+                    <li class="logo" id="logo-quiz"><span>Quiz App</span></li>
+                    <li class="login-btn" id="btn-loginScreen"><span>Login</span></li>
+                    <li class="register-btn" id="btn-registerScreen"><span>Register</span></li>
+                </ul>
+            </div>
+        </div>
+    
+        <div class="start" id="start">
+                    <header class="header">
+                        <h3 class="nameGame">😎Quiz về Tình Bạn Thú Vị Nhất!😎</h3>
+                        <div class="ruleGame">
+                            <h4 class="ruleGameTitle">Hướng dẫn: </h4>
+                            <ul class="ruleGameSub">
+                                <li>📝 Tạo tài khoản đăng nhập để tạo bộ câu hỏi.</li>
+                                <li>🙆 Người chơi trả lời bất kỳ câu hỏi về bạn thân của mình.</li>
+                                <li>🔥 Vậy là bạn của bạn có thể chơi được rồi.</li>
+                                <li>🤔 Bạn của bạn phải cố đoán ra câu trả lời đúng.</li>
+                                <li>👨‍❤️‍💋‍👨 Kiểm tra điểm của bạn bè bạn.</li>
+                            </ul>
+                        </div>
+                    </header>
+                    <div>
+                        <button class="btn btn-success startBtn" id="startBtn" onclick="startQuiz()">Start</button>
+                        <button class="btn btn-success adminBtn" id="adminBtn"  onclick="adminPanel()">Join with us?</button>
+                    </div>
+                </div>
+        
+        <!-- ==================Quiz Body================ -->
+        <div id="mainBody" style="display: none;">
+        <button class="btn btn-danger exitBtn" id="exitBtn" onclick="appendResult()" style="color : #fff;
+                                background-color: #ffdc62;
+                                border : none; color: #4257b2;">Finish Quiz</button>
+            <div id="quiz">
+                <div id="quizHeader"></div>
+                <div id="quizBody"></div>
+            </div>
+        </div>
+    </div>
+
+    <script defer src="app.js"></script>
+</body>
+</html>
